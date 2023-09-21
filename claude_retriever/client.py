@@ -159,7 +159,6 @@ class ClientWithRetrieval(Anthropic):
             max_searches_to_try=max_searches_to_try,
             temperature=temperature,
         )
-        print("HELLO:", type(search_results[0]))
         answer, prompt = self.answer_with_results(
             search_results, query, model, temperature
         )

@@ -6,7 +6,7 @@ Testset and results use the Scorecard SDK.
 
 import requests
 
-SCORECARD_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbWV0YWRhdGEiOnt9LCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiYXpwIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwiZW1haWwiOiJ0ZWFtQGdldHNjb3JlY2FyZC5haSIsImV4cCI6MTY5NTg1NTEwOSwiaWF0IjoxNjk1MjUwMzA5LCJpc3MiOiJodHRwczovL3N1cHJlbWUtYm9hLTQ4LmNsZXJrLmFjY291bnRzLmRldiIsImp0aSI6Ijk4MGNiM2MwYThiZDE5Y2NkZTcwIiwibmJmIjoxNjk1MjUwMzA0LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsInN1YiI6InVzZXJfMlNrVTBnbkRyS1BQRWRZQ3BMODdneU9DalNLIiwidXNlcl9tZXRhZGF0YSI6e319.UsnGyyQgUy4GxyN9dZMIAD2VSOEmT0ykIiXZSj2yNls"
+SCORECARD_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbWV0YWRhdGEiOnt9LCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiYXpwIjoiaHR0cHM6Ly9hcHAuZ2V0c2NvcmVjYXJkLmFpIiwiZW1haWwiOiJ0ZWFtQGdldHNjb3JlY2FyZC5haSIsImV4cCI6MTk1NDQ1NDUxOCwiaWF0IjoxNjk1MjU0NTE4LCJpc3MiOiJodHRwczovL2NsZXJrLmdldHNjb3JlY2FyZC5haSIsImp0aSI6ImIyYzVkY2M0OTgyNzIyZjdiNmZiIiwibmJmIjoxNjk1MjU0NTEzLCJyb2xlIjoiYXV0aGVudGljYXRlZCIsInN1YiI6InVzZXJfMlY1aDQ5NW5rc3NGQWt0WjB5WER4Q2NsMTJLIiwidXNlcl9tZXRhZGF0YSI6e319.1VzxInELWtAOVV2Vkps40FEGDXewDBktQcndMo9IH0o"
 
 # Endpoint definitions
 BASE_URL = "https://api.getscorecard.ai/"
@@ -74,7 +74,7 @@ def log_record(
         "testcase_id": testcase_id,
         "model_response": model_response,
         "context": context,
-        "full_prompt": prompt,
+        "prompt": prompt,
         "model_params": model_params,
     }
 
