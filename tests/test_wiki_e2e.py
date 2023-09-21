@@ -27,7 +27,6 @@ def run_all_tests(input_testset_id: int, scoring_config_id: int, model_params: d
         response, context, prompt = wikipedia_retrieval.generate_completion(
             testcase["user_query"]
         )
-        print("PROMPT:", prompt)
         # Log the result back to Scorecard for scoring
         scorecard.log_record(
             run_id=run_id,
@@ -43,8 +42,8 @@ def run_all_tests(input_testset_id: int, scoring_config_id: int, model_params: d
 
 
 if __name__ == "__main__":
-    INPUT_TESTSET_ID = 125
-    SCORING_CONFIG_ID = 2
+    INPUT_TESTSET_ID = 127
+    SCORING_CONFIG_ID = 9
     MODEL_PARAMS = {
         "model_name": "claude-2",
         "n_search_results_to_use": 1,
