@@ -45,7 +45,7 @@ jobs:
         echo "DEFAULT_TESTSET_ID=86" >> $GITHUB_ENV
         echo "DEFAULT_SCORING_CONFIG_ID=1" >> $GITHUB_ENV
 
-    - name: Run test
+    - name: Run test_wiki_e2e
       env:
         # API keys
         SCORECARD_API_KEY: ${{ secrets.SCORECARD_API_KEY }}
@@ -57,4 +57,4 @@ jobs:
         # 3. Use default values set as environment variables if neither is available
         INPUT_TESTSET_ID: ${{ github.event.inputs.input_testset_id || github.event.client_payload.input_testset_id || env.DEFAULT_TESTSET_ID }}
         SCORING_CONFIG_ID: ${{ github.event.inputs.scoring_config_id || github.event.client_payload.scoring_config_id || env.DEFAULT_SCORING_CONFIG_ID }}
-      run: python3 run_tests.py
+      run: python3 tests/test_wiki_e2e.py
