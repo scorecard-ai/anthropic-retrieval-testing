@@ -8,7 +8,7 @@ ANTHROPIC_SEARCH_MODEL = "claude-2"
 
 
 def generate_completion(
-    query: str, n_search_results_to_use: int = 1, max_searches_to_try: int = 3
+    query: str, n_search_results_to_use: int = 1, max_searches_to_try: int = 1
 ):
     wikipedia_search_tool = WikipediaSearchTool()
 

@@ -4,7 +4,7 @@ Script that runs an ad hoc test suite for the Wikipedia task.
 Testset and results use the Scorecard SDK.
 """
 
-from scorecard import utils as scorecard
+import scorecard
 from demo import wikipedia_retrieval
 
 
@@ -43,7 +43,7 @@ def run_all_tests(input_testset_id: int, scoring_config_id: int, model_params: d
 
 if __name__ == "__main__":
     INPUT_TESTSET_ID = 127
-    SCORING_CONFIG_ID = 9
+    SCORING_CONFIG_ID = 35
     MODEL_PARAMS = {
         "model_name": "claude-2",
         "n_search_results_to_use": 1,
