@@ -4,6 +4,7 @@ Script that runs an ad hoc test suite for the Wikipedia task.
 Testset and results use the Scorecard SDK.
 """
 
+import os
 import tests.scorecard as scorecard
 from demo import wikipedia_retrieval
 
