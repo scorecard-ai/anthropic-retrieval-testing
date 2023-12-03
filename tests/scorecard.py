@@ -6,7 +6,7 @@ Testset and results use the Scorecard SDK.
 
 import requests
 
-SCORECARD_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiYXpwIjoiaHR0cHM6Ly9hcHAuZ2V0c2NvcmVjYXJkLmFpIiwiZW1haWwiOiJ0ZWFtQGdldHNjb3JlY2FyZC5haSIsImV4cCI6MTk1OTM2OTA3OCwiaWF0IjoxNzAwMTY5MDc4LCJpc3MiOiJodHRwczovL2NsZXJrLmdldHNjb3JlY2FyZC5haSIsImp0aSI6Ijk5ZjY0ZjI5YzRkMDk5YTdhN2Y5IiwibmJmIjoxNzAwMTY5MDczLCJvcmdfaWQiOiJvcmdfMlZnQ2syREdTUUhUb2pFSTNPVk5IOGszT2tIIiwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJzdWIiOiJ1c2VyXzJWNWg0OTVua3NzRkFrdFoweVhEeENjbDEySyJ9.8ltOMqOuKTQzFTVwvJG2BJtkFUYHiTR9uhGvJMEMYy4"
+SCORECARD_API_KEY = os.getenv("SCORECARD_API_KEY")
 
 # Endpoint definitions
 BASE_URL = "https://api.getscorecard.ai/"
@@ -42,7 +42,7 @@ def create_run(input_testset_id: int, scoring_config_id: int, model_params: dict
 
 
 def get_testset(testset_id: int):
-    print("Retrieving testset...")
+    print(f"Retrieving testset ID {testset_id}...")
     get_testset_url = GET_TESTSET_BASE_URL + "/" + str(testset_id)
     testset_response = requests.get(
         get_testset_url, headers=REQUEST_HEADERS, timeout=30
