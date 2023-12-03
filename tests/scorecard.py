@@ -4,6 +4,7 @@ Script that runs an ad hoc test suite for the Wikipedia task.
 Testset and results use the Scorecard SDK.
 """
 
+import os
 import requests
 
 SCORECARD_API_KEY = os.getenv("SCORECARD_API_KEY")
