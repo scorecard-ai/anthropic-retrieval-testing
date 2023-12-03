@@ -42,8 +42,8 @@ def run_all_tests(input_testset_id: int, scoring_config_id: int, model_params: d
 
 
 if __name__ == "__main__":
-    INPUT_TESTSET_ID = 127
-    SCORING_CONFIG_ID = 35
+    INPUT_TESTSET_ID = os.getenv("INPUT_TESTSET_ID")
+    SCORING_CONFIG_ID = os.getenv("SCORING_CONFIG_ID")
     MODEL_PARAMS = {
         "model_name": "claude-2",
         "n_search_results_to_use": 1,
