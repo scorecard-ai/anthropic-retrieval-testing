@@ -1,1 +1,1 @@
-scorecard-ai==0.2.1
+scorecard-ai==2.0.0a3
