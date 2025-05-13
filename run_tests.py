@@ -1,28 +1,43 @@
 import os
-from scorecard.client import Scorecard
+import re
+from typing import Any
+
+from scorecard_ai import Scorecard
+from scorecard_ai.lib import run_and_evaluate
 
 
-def query_model(prompt: str) -> str:
+def run_system(system_input: dict[str, Any]) -> dict:
     """
     FIXME: Replace this placeholder function with a call to your model
     """
-    return f"Placeholder LLM response, got prompt: {prompt}"
+    return {
+        "response": f"Placeholder LLM response, got input: {system_input}",
+    }
 
 
-def main(testset_id: int, scoring_config_id: int):
+def main(
+    *, scorecard_api_key: str, project_id: str, testset_id: str, metric_ids: list[str]
+) -> None:
     """
-    Run and score all testcases in a given testset
+    Run and score all Testcases in a given Testset
     """
-    client = Scorecard(api_key=SCORECARD_API_KEY)
-    client.run_tests(
-      input_testset_id=testset_id,
-      scoring_config_id=scoring_config_id,
-      model_invocation=query_model,
+    client = Scorecard(api_key=scorecard_api_key)
+
+    run = run_and_evaluate(
+        client=client,
+        project_id=project_id,
+        testset_id=testset_id,
+        metric_ids=metric_ids,
+        system=run_system,
     )
+
+    print(run["url"])
 
 
 if __name__ == "__main__":
-    TESTSET_ID = int(os.environ["TESTSET_ID"])
-    SCORING_CONFIG_ID = int(os.environ["SCORING_CONFIG_ID"])
-    SCORECARD_API_KEY = os.environ["SCORECARD_API_KEY"]
-    main(TESTSET_ID, SCORING_CONFIG_ID)
+    main(
+        scorecard_api_key=os.environ["SCORECARD_API_KEY"],
+        project_id=os.environ["PROJECT_ID"],
+        testset_id=os.environ["TESTSET_ID"],
+        metric_ids=re.findall(r"\b\d+\b", os.environ["METRIC_IDS"]),
+    )
